@@ -1,28 +1,36 @@
 import { useState } from "react";
-import { ArrowRight, ShieldCheck, BadgeCheck, Users, Trophy, TrendingUp, Sparkles, Home, Car } from "lucide-react";
+import { ArrowRight, ShieldCheck, BadgeCheck, Users, Trophy, TrendingUp, Sparkles, Home, Car, HelpCircle } from "lucide-react";
 import reinaldoPortrait from "../../img/Reinaldo embaixador.jpg";
 
 export default function Hero() {
   const [modalidade, setModalidade] = useState<"imovel" | "auto">("imovel");
   const [credito, setCredito] = useState(300000);
   const [prazo, setPrazo] = useState(180);
+  const [tipoParcela, setTipoParcela] = useState<"integral" | "reduzida">("integral");
 
   // ─── CONSÓRCIO (modelo Ademicon real) ────────────────────────────────────
-  // Imóvel: taxa adm. ≈ 16% total + fundo de reserva ≈ 0% (já incluso)
-  // Auto:   taxa adm. ≈ 26% total (média mercado, conforme dados BACEN 2025)
-  // Parcela = fundo_comum + fundo_adm + fundo_reserva
-  //   fundo_comum    = credito / prazo
-  //   fundo_adm      = (credito * taxaAdm) / prazo
-  //   fundo_reserva  = (credito * taxaReserva) / prazo
-  const taxaAdm      = modalidade === "imovel" ? 0.16   : 0.26;
-  const taxaReserva  = modalidade === "imovel" ? 0.01   : 0.02;  // fundo de reserva
+  // Imóvel: taxa adm. = 17% total + fundo de reserva = 1.5% (Total 18.5%)
+  // Auto:   taxa adm. = 18% total + fundo de reserva = 2% (Total 20%)
+  const taxaAdm      = modalidade === "imovel" ? 0.17   : 0.18;
+  const taxaReserva  = modalidade === "imovel" ? 0.015  : 0.02;  // fundo de reserva
+  
+  const fundoComumMensal = credito / prazo;
+  const taxaAdmMensal = (credito * taxaAdm) / prazo;
+  const fundoReservaMensal = (credito * taxaReserva) / prazo;
+
+  const consorcioParcelaIntegral = fundoComumMensal + taxaAdmMensal + fundoReservaMensal;
+  const consorcioParcelaReduzida = (fundoComumMensal * 0.5) + taxaAdmMensal + fundoReservaMensal;
+  
+  // Parcela pós-contemplação se escolher reduzida (estimativa média na metade do prazo)
+  // Paga 150% do fundo comum para compensar a redução inicial de 50% paga na metade do prazo anterior
+  const consorcioParcelaPosContemplacao = (fundoComumMensal * 1.5) + taxaAdmMensal + fundoReservaMensal;
+
+  const consorcioParcela = tipoParcela === "integral" ? consorcioParcelaIntegral : consorcioParcelaReduzida;
   const consorcioTotal   = credito * (1 + taxaAdm + taxaReserva);
-  const consorcioParcela = consorcioTotal / prazo;
 
   // ─── FINANCIAMENTO (Tabela Price — PMT real) ──────────────────────────────
   // Imóvel: Caixa/Itaú 2025 ≈ 11% a.a. (mínimo mercado, clientes bons)
   // Auto:   Bacen média 2026 ≈ 26% a.a. (1,93% a.m.)
-  // PMT = PV * [i*(1+i)^n] / [(1+i)^n - 1]
   const taxaAnual    = modalidade === "imovel" ? 0.11   : 0.26;
   const taxaMensal   = Math.pow(1 + taxaAnual, 1 / 12) - 1;
   const fatorPMT     = (taxaMensal * Math.pow(1 + taxaMensal, prazo))
@@ -40,6 +48,7 @@ export default function Hero() {
 
   const handleModalidadeChange = (type: "imovel" | "auto") => {
     setModalidade(type);
+    setTipoParcela("integral");
     if (type === "imovel") {
       setCredito(300000);
       setPrazo(180);
@@ -193,41 +202,113 @@ export default function Hero() {
                 </div>
               </div>
 
+              {/* Payment Type Selection (Ademicon Signature Feature) */}
+              <div>
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-xs font-semibold text-[var(--ink-soft)] flex items-center gap-1.5">
+                    Opção de Parcela
+                    <span className="group relative cursor-help flex items-center justify-center">
+                      <HelpCircle className="h-3.5 w-3.5 text-black/35 hover:text-black/55 transition-colors" />
+                      <span className="pointer-events-none absolute bottom-full left-1/2 z-30 mb-2 w-64 -translate-x-1/2 rounded-xl bg-[var(--ink)] p-3 text-[11px] font-normal leading-normal text-white opacity-0 transition-opacity duration-200 group-hover:opacity-100 shadow-xl backdrop-blur-sm">
+                        No **Plano 50** você paga meia parcela do fundo comum + taxas integralmente até a contemplação. Após ser contemplado, o saldo restante é diluído nas parcelas seguintes.
+                        <span className="absolute top-full left-1/2 h-2 w-2 -translate-x-1/2 -translate-y-1 bg-[var(--ink)] rotate-45"></span>
+                      </span>
+                    </span>
+                  </span>
+                  <span className="text-[10px] text-[var(--primary)] font-bold">
+                    {tipoParcela === "reduzida" && "✓ Plano 50 Ativo"}
+                  </span>
+                </div>
+                <div className="grid grid-cols-2 gap-1.5 bg-black/5 p-1 rounded-xl">
+                  <button
+                    type="button"
+                    onClick={() => setTipoParcela("integral")}
+                    className={`rounded-lg py-1.5 text-xs font-bold transition-all ${
+                      tipoParcela === "integral"
+                        ? "bg-white text-[var(--ink)] shadow-sm"
+                        : "text-[var(--ink-soft)] hover:text-[var(--ink)]"
+                    }`}
+                  >
+                    Integral (100%)
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setTipoParcela("reduzida")}
+                    className={`rounded-lg py-1.5 text-xs font-bold transition-all ${
+                      tipoParcela === "reduzida"
+                        ? "bg-white text-[var(--primary)] shadow-sm"
+                        : "text-[var(--ink-soft)] hover:text-[var(--ink)]"
+                    }`}
+                  >
+                    Reduzida (Plano 50)
+                  </button>
+                </div>
+              </div>
+
               {/* Results Grid */}
               <div className="grid grid-cols-2 gap-3 pt-1">
                 {/* Consortium card */}
-                <div className="rounded-2xl bg-[var(--primary)]/5 p-4 border border-[var(--primary)]/15">
-                  <div className="flex items-center justify-between mb-1">
-                    <span className="text-xs text-[var(--muted-foreground)]">Consórcio Ademicon</span>
-                    <span className="text-[9px] font-bold uppercase tracking-wide text-[var(--primary)] bg-[var(--primary)]/10 rounded-full px-2 py-0.5">
-                      {modalidade === "imovel" ? "Taxa 17%" : "Taxa 28%"}
+                <div className="rounded-2xl bg-[var(--primary)]/5 p-4 border border-[var(--primary)]/15 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center justify-between mb-1">
+                      <span className="text-xs text-[var(--muted-foreground)]">Consórcio Ademicon</span>
+                      <span className="text-[9px] font-bold uppercase tracking-wide text-[var(--primary)] bg-[var(--primary)]/10 rounded-full px-2 py-0.5">
+                        {tipoParcela === "reduzida" ? "Plano 50" : `Taxa ${((taxaAdm + taxaReserva) * 100).toFixed(1)}%`}
+                      </span>
+                    </div>
+                    <span className="text-xl font-extrabold text-[var(--ink)] block mt-1">
+                      {formatCurrency(consorcioParcela)}
+                      <span className="text-xs font-normal text-[var(--ink-soft)]">/mês</span>
                     </span>
+                    {tipoParcela === "reduzida" ? (
+                      <span className="text-[9px] text-[var(--primary)] font-semibold block mt-0.5">
+                        (Até a contemplação)
+                      </span>
+                    ) : (
+                      <span className="text-[10px] text-[var(--primary)] font-bold mt-1 block">
+                        ✓ Sem Juros · Total: {formatCurrency(consorcioTotal)}
+                      </span>
+                    )}
                   </div>
-                  <span className="text-xl font-extrabold text-[var(--ink)] block mt-1">
-                    {formatCurrency(consorcioParcela)}
-                    <span className="text-xs font-normal text-[var(--ink-soft)]">/mês</span>
-                  </span>
-                  <span className="text-[10px] text-[var(--primary)] font-bold mt-1 block">
-                    ✓ Sem Juros · Total: {formatCurrency(consorcioTotal)}
-                  </span>
+
+                  {tipoParcela === "reduzida" && (
+                    <div className="mt-3 border-t border-[var(--primary)]/10 pt-2">
+                      <div className="flex items-center justify-between text-[10px] text-[var(--ink-soft)]">
+                        <span>Pós-Contemplação:</span>
+                        <span className="group relative cursor-help flex items-center justify-center">
+                          <HelpCircle className="h-3 w-3 text-black/30 hover:text-black/50" />
+                          <span className="pointer-events-none absolute bottom-full left-1/2 z-30 mb-2 w-52 -translate-x-1/2 rounded-lg bg-[var(--ink)] p-2.5 text-[9px] font-normal leading-normal text-white opacity-0 transition-opacity duration-200 group-hover:opacity-100 shadow-xl">
+                            Simulação estimada pós-contemplação na metade do prazo, recalculando o saldo devedor do fundo comum.
+                            <span className="absolute top-full left-1/2 h-2 w-2 -translate-x-1/2 -translate-y-1 bg-[var(--ink)] rotate-45"></span>
+                          </span>
+                        </span>
+                      </div>
+                      <span className="font-extrabold text-[var(--ink)] text-xs block mt-0.5">
+                        {formatCurrency(consorcioParcelaPosContemplacao)}
+                        <span className="text-[10px] font-normal text-[var(--ink-soft)]">/mês</span>
+                      </span>
+                    </div>
+                  )}
                 </div>
 
                 {/* Bank financing card */}
-                <div className="rounded-2xl bg-black/5 p-4 border border-black/5 relative overflow-hidden">
+                <div className="rounded-2xl bg-black/5 p-4 border border-black/5 relative overflow-hidden flex flex-col justify-between">
                   <div className="absolute right-0 top-0 h-12 w-12 bg-red-950/5 rounded-bl-full pointer-events-none" />
-                  <div className="flex items-center justify-between mb-1">
-                    <span className="text-xs text-[var(--muted-foreground)]">Financiamento Banco</span>
-                    <span className="text-[9px] font-bold uppercase tracking-wide text-red-500 bg-red-500/10 rounded-full px-2 py-0.5">
-                      {modalidade === "imovel" ? "11% a.a." : "26% a.a."}
+                  <div>
+                    <div className="flex items-center justify-between mb-1">
+                      <span className="text-xs text-[var(--muted-foreground)]">Financiamento Banco</span>
+                      <span className="text-[9px] font-bold uppercase tracking-wide text-red-500 bg-red-500/10 rounded-full px-2 py-0.5">
+                        {modalidade === "imovel" ? "11% a.a." : "26% a.a."}
+                      </span>
+                    </div>
+                    <span className="text-xl font-extrabold text-[var(--ink-soft)]/50 block mt-1 line-through">
+                      {formatCurrency(financiamentoParcela)}
+                      <span className="text-xs font-normal">/mês</span>
+                    </span>
+                    <span className="text-[10px] text-red-500 mt-1 block">
+                      ✗ Com Juros · Total: {formatCurrency(financiamentoTotal)}
                     </span>
                   </div>
-                  <span className="text-xl font-extrabold text-[var(--ink-soft)]/50 block mt-1 line-through">
-                    {formatCurrency(financiamentoParcela)}
-                    <span className="text-xs font-normal">/mês</span>
-                  </span>
-                  <span className="text-[10px] text-red-500 mt-1 block">
-                    ✗ Com Juros · Total: {formatCurrency(financiamentoTotal)}
-                  </span>
                 </div>
               </div>
 
