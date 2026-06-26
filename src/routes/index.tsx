@@ -72,8 +72,8 @@ function LandingPage() {
       <Manifesto />
       <Gallery />
       <AboutUnit />
-      <LeadForm />
       <CTA />
+      <LeadForm />
       <FAQ />
       <Footer />
     </main>

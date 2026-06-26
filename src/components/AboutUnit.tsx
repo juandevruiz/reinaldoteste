@@ -2,14 +2,13 @@ import { useState } from "react";
 import { MapPin, Building, Sparkles, ChevronLeft, ChevronRight, Compass, Camera, Maximize2, X } from "lucide-react";
 import gru1 from "../../img/gru1.jpeg";
 import gru2 from "../../img/gru2.jpeg";
-import gru3 from "../../img/gru3.jpeg";
 import gru4 from "../../img/gru4.jpeg";
 import gru5 from "../../img/gru5.jpeg";
 import gru6 from "../../img/gru6.jpeg";
 import gru7 from "../../img/gru7.jpeg";
 
 export default function AboutUnit() {
-  const images = [gru1, gru2, gru3, gru4, gru5, gru6, gru7];
+  const images = [gru1, gru2, gru4, gru5, gru6, gru7];
   const [currentIndex, setCurrentIndex] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
 
@@ -115,7 +114,7 @@ export default function AboutUnit() {
               <div className="space-y-3 text-sm text-[var(--ink-soft)] font-medium">
                 <p className="flex items-start gap-2.5">
                   <span className="font-semibold text-[var(--ink)] shrink-0">Logradouro:</span>
-                  <span>Rua Santo Antônio, 1542</span>
+                  <span>Rua Santo Antônio, 462</span>
                 </p>
                 <p className="flex items-start gap-2.5">
                   <span className="font-semibold text-[var(--ink)] shrink-0">Complemento:</span>
@@ -143,7 +142,7 @@ export default function AboutUnit() {
               <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden rounded-[32px] border border-black/5 bg-white/80 shadow-md">
                 <iframe
                   title="Mapa Satélite Ademicon Guarulhos"
-                  src="https://maps.google.com/maps?q=Rua%20Santo%20Ant%C3%B4nio%201542,%20Guarulhos%20-%20SP&t=k&z=19&ie=UTF8&iwloc=&output=embed"
+                  src="https://maps.google.com/maps?q=Rua%20Santo%20Ant%C3%B4nio%20462,%20Guarulhos%20-%20SP&t=k&z=19&ie=UTF8&iwloc=&output=embed"
                   className="absolute inset-0 h-full w-full border-0"
                   allowFullScreen
                   loading="lazy"

@@ -85,7 +85,7 @@ export default function Hero() {
         </svg>
       </div>
 
-      <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 lg:grid-cols-[1.1fr_0.9fr] lg:gap-8">
+      <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-start gap-12 px-6 lg:grid-cols-[1.1fr_0.9fr] lg:gap-8">
         
         {/* Left Content */}
         <div className="animate-fade-up">
@@ -330,7 +330,7 @@ export default function Hero() {
             </div>
 
             <div className="mt-5 flex gap-3">
-              <a href="#cta" className="btn-primary !py-3.5 !text-sm w-full text-center flex-1 shadow-lg">
+              <a href="#lead-form" className="btn-primary !py-3.5 !text-sm w-full text-center flex-1 shadow-lg">
                 Garantir este plano <ArrowRight className="h-4 w-4 inline ml-1" />
               </a>
             </div>

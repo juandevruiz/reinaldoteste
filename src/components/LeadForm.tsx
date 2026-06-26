@@ -1,6 +1,6 @@
 import { useState, ChangeEvent, FormEvent } from "react";
 import { toast } from "sonner";
-import { User, Phone, Mail, MapPin, CreditCard, Send, FileText, MessageSquare, BadgeCheck, ShieldCheck } from "lucide-react";
+import { User, Phone, Mail, MapPin, CreditCard, Send, MessageSquare, BadgeCheck, ShieldCheck } from "lucide-react";
 
 // Configuração de envio de e-mail (Locaweb / APIs Externas)
 // Para usar o Formspree: "https://formspree.io/f/seu-id"
@@ -136,13 +136,13 @@ ${formData.observacoes || "Nenhuma observação informada."}`;
       <div className="mx-auto max-w-4xl">
         <div className="text-center mb-12 reveal">
           <span className="inline-flex items-center gap-2 rounded-full border border-black/5 bg-white/60 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[var(--primary)] shadow-sm">
-            <FileText className="h-3.5 w-3.5" /> Lead Qualificado
+            <MessageSquare className="h-3.5 w-3.5" /> Solicitação de Simulação
           </span>
           <h2 className="mt-5 text-balance text-3xl font-extrabold leading-[1.1] text-[var(--ink)] sm:text-4xl">
-            Simulador & Formulário de <span className="text-gradient-gold">Interesse</span>
+            Simulador & Contato <span className="text-gradient-gold">Direto</span>
           </h2>
           <p className="mt-4 text-sm text-[var(--ink-soft)] max-w-xl mx-auto leading-relaxed">
-            Preencha os dados abaixo para receber uma simulação customizada. Suas respostas serão enviadas por e-mail e você iniciará o atendimento imediato com o gestor **Bruno Sousa** via WhatsApp.
+            Preencha os dados abaixo para receber uma simulação customizada sob a **Gestão Bruno Sousa**. Ao enviar, os dados serão encaminhados por e-mail e você iniciará o atendimento direto no WhatsApp.
           </p>
         </div>
 
