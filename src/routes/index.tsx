@@ -5,9 +5,7 @@ import Hero from "@/components/Hero";
 import TrustBar from "@/components/TrustBar";
 import Benefits from "@/components/Benefits";
 import Modalities from "@/components/Modalities";
-import HowItWorks from "@/components/HowItWorks";
 import AthleteSection from "@/components/AthleteSection";
-import Manifesto from "@/components/Manifesto";
 import Gallery from "@/components/Gallery";
 import AboutUnit from "@/components/AboutUnit";
 import LeadForm from "@/components/LeadForm";
@@ -67,9 +65,7 @@ function LandingPage() {
       <TrustBar />
       <Benefits />
       <Modalities />
-      <HowItWorks />
       <AthleteSection />
-      <Manifesto />
       <Gallery />
       <AboutUnit />
       <CTA />

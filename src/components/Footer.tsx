@@ -66,7 +66,7 @@ export default function Footer() {
             </li>
             <li className="flex items-start gap-2.5">
               <MapPin className="h-4.5 w-4.5 text-[var(--gold)] shrink-0 mt-0.5" />
-              <span>Rua Santo Antônio, 462 · 6º Andar (Cobertura) · Guarulhos – SP · CEP 07271-000</span>
+              <span>Rua Santo Antônio, 445 · 6º Andar (Cobertura) · Guarulhos – SP · CEP 07271-000</span>
             </li>
           </ul>
         </div>

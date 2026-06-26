@@ -114,7 +114,7 @@ export default function AboutUnit() {
               <div className="space-y-3 text-sm text-[var(--ink-soft)] font-medium">
                 <p className="flex items-start gap-2.5">
                   <span className="font-semibold text-[var(--ink)] shrink-0">Logradouro:</span>
-                  <span>Rua Santo Antônio, 462</span>
+                  <span>Rua Santo Antônio, 445</span>
                 </p>
                 <p className="flex items-start gap-2.5">
                   <span className="font-semibold text-[var(--ink)] shrink-0">Complemento:</span>
@@ -142,7 +142,7 @@ export default function AboutUnit() {
               <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden rounded-[32px] border border-black/5 bg-white/80 shadow-md">
                 <iframe
                   title="Mapa Satélite Ademicon Guarulhos"
-                  src="https://maps.google.com/maps?q=Rua%20Santo%20Ant%C3%B4nio%20462,%20Guarulhos%20-%20SP&t=k&z=19&ie=UTF8&iwloc=&output=embed"
+                  src="https://maps.google.com/maps?q=Rua%20Santo%20Ant%C3%B4nio%20445,%20Guarulhos%20-%20SP&t=k&z=19&ie=UTF8&iwloc=&output=embed"
                   className="absolute inset-0 h-full w-full border-0"
                   allowFullScreen
                   loading="lazy"
