@@ -1,9 +1,10 @@
 [build]
-  command = "npm run build"
+  command = "npm ci && npm run build"
   publish = ".output/public"
 
 [build.environment]
   NODE_VERSION = "20"
+  NITRO_PRESET = "netlify"
 
 [[redirects]]
   from = "/*"
