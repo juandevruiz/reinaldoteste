@@ -17,12 +17,12 @@ export default function Footer() {
             <img src={ademiconLogo} alt="Ademicon" className="h-9 brightness-0 invert" />
           </div>
           <p className="max-w-sm text-sm leading-relaxed text-white/60">
-            Consórcio inteligente regulado pelo Banco Central. Construa seu patrimônio e realize conquistas sem juros, com o endosso de Reinaldo da Silva — embaixador, apoiador e investidor Ademicon.
+            Consórcio inteligente regulado pelo Banco Central. Construa seu patrimônio e realize conquistas sem juros, em parceria com Reinaldo e a Ademicon Guarulhos. Atendimento comercial realizado pela Gestão Bruno Sousa.
           </p>
           <div className="flex gap-3">
             {[
               { icon: Instagram, href: "#", label: "Instagram" },
-              { icon: MessageCircle, href: "https://wa.me/5500000000000", label: "WhatsApp" },
+              { icon: MessageCircle, href: "https://wa.me/5511970506840?text=Ol%C3%A1!%20Vim%20pelo%20site%20do%20Reinaldo%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20cons%C3%B3rcios%20da%20Ademicon%20Guarulhos.", label: "WhatsApp" },
               { icon: Mail, href: "mailto:contato@ademicon.com.br", label: "Email" },
             ].map(({ icon: Icon, href, label }) => (
               <a
@@ -45,17 +45,17 @@ export default function Footer() {
           <ul className="mt-6 space-y-4 text-sm text-white/70">
             <li className="flex items-start gap-2.5">
               <Phone className="h-4.5 w-4.5 text-[var(--gold)] shrink-0 mt-0.5" />
-              <span>0800 000 0000</span>
+              <span>+55 11 97050-6840 (Bruno Sousa)</span>
             </li>
             <li className="flex items-start gap-2.5">
               <MessageCircle className="h-4.5 w-4.5 text-[var(--gold)] shrink-0 mt-0.5" />
               <a
-                href="https://wa.me/5500000000000"
+                href="https://wa.me/5511970506840?text=Ol%C3%A1!%20Vim%20pelo%20site%20do%20Reinaldo%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20cons%C3%B3rcios%20da%20Ademicon%20Guarulhos."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-white transition-colors"
               >
-                WhatsApp 24h (Simulador)
+                WhatsApp (Gestão Bruno Sousa)
               </a>
             </li>
             <li className="flex items-start gap-2.5">
@@ -66,7 +66,7 @@ export default function Footer() {
             </li>
             <li className="flex items-start gap-2.5">
               <MapPin className="h-4.5 w-4.5 text-[var(--gold)] shrink-0 mt-0.5" />
-              <span>Atendimento em todo o Brasil</span>
+              <span>Rua Santo Antônio, 1542 · 6º Andar (Cobertura) · Guarulhos – SP · CEP 07271-000</span>
             </li>
           </ul>
         </div>

@@ -42,6 +42,9 @@ export default function Nav() {
             <a href="#atleta" className="transition-all hover:text-[var(--primary)] hover:translate-y-[-1px]">
               Parceria
             </a>
+            <a href="#sobre-unidade" className="transition-all hover:text-[var(--primary)] hover:translate-y-[-1px]">
+              Sobre a Unidade
+            </a>
             <a href="#galeria" className="transition-all hover:text-[var(--primary)] hover:translate-y-[-1px]">
               O atleta
             </a>
@@ -53,7 +56,7 @@ export default function Nav() {
           {/* Actions */}
           <div className="flex items-center gap-3">
             <a
-              href="#cta"
+              href="#lead-form"
               className="btn-primary text-xs sm:text-sm !py-2.5 !px-5 hidden sm:inline-flex shadow-sm"
             >
               Simular agora <ArrowRight className="h-4 w-4" />
@@ -98,6 +101,13 @@ export default function Nav() {
                 Parceria
               </a>
               <a
+                href="#sobre-unidade"
+                onClick={() => setIsOpen(false)}
+                className="pb-2 border-b border-black/5 hover:text-[var(--primary)]"
+              >
+                Sobre a Unidade
+              </a>
+              <a
                 href="#galeria"
                 onClick={() => setIsOpen(false)}
                 className="pb-2 border-b border-black/5 hover:text-[var(--primary)]"
@@ -112,11 +122,11 @@ export default function Nav() {
                 FAQ
               </a>
               <a
-                href="#cta"
+                href="#lead-form"
                 onClick={() => setIsOpen(false)}
                 className="btn-primary text-sm mt-2 w-full text-center"
               >
-                Falar com Especialista
+                Simular Agora
               </a>
             </nav>
           </div>

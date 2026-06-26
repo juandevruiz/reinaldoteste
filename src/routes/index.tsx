@@ -9,6 +9,8 @@ import HowItWorks from "@/components/HowItWorks";
 import AthleteSection from "@/components/AthleteSection";
 import Manifesto from "@/components/Manifesto";
 import Gallery from "@/components/Gallery";
+import AboutUnit from "@/components/AboutUnit";
+import LeadForm from "@/components/LeadForm";
 import CTA from "@/components/CTA";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
@@ -69,6 +71,8 @@ function LandingPage() {
       <AthleteSection />
       <Manifesto />
       <Gallery />
+      <AboutUnit />
+      <LeadForm />
       <CTA />
       <FAQ />
       <Footer />

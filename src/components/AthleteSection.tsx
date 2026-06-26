@@ -60,11 +60,11 @@ export default function AthleteSection() {
           </span>
           
           <h2 className="mt-5 text-balance text-4xl font-extrabold leading-[1.1] text-[var(--ink)] sm:text-5xl">
-            Reinaldo investe, apoia e <span className="text-gradient-gold">acredita</span> na Ademicon.
+            Reinaldo investe, apoia e <span className="text-gradient-gold">acredita</span> na Ademicon Guarulhos.
           </h2>
           
           <p className="mt-6 text-base leading-relaxed text-[var(--ink-soft)]">
-            Mais do que um embaixador, <span className="font-bold text-[var(--ink)]">Reinaldo da Silva</span> é apoiador e investidor ativo da <span className="font-bold text-[var(--ink)]">Ademicon</span>. Ele escolheu o consórcio inteligente como a ferramenta principal de seu planejamento de longo prazo — e compartilha esse exemplo com milhares de brasileiros.
+            Mais do que um embaixador, <span className="font-bold text-[var(--ink)]">Reinaldo</span> é parceiro ativo da <span className="font-bold text-[var(--ink)]">Ademicon Guarulhos (Gestão Bruno Sousa)</span>. Ele escolheu o consórcio inteligente como a ferramenta principal de seu planejamento de longo prazo — e compartilha esse exemplo de planejamento financeiro sólido com milhares de brasileiros.
           </p>
           
           <p className="mt-4 text-sm leading-relaxed text-[var(--muted-foreground)]">

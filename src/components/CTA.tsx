@@ -32,13 +32,13 @@ export default function CTA() {
             </h2>
             
             <p className="mt-6 text-base text-white/80 max-w-xl mx-auto">
-              Fale agora com um consultor da Ademicon e descubra o plano ideal para você.
+              Fale agora com o gestor Bruno Sousa da Ademicon Guarulhos e descubra o plano ideal para você.
             </p>
 
             {/* Triggers */}
             <div className="mt-10 flex flex-wrap justify-center items-center gap-4">
               <a
-                href="https://wa.me/5500000000000"
+                href="https://wa.me/5511970506840?text=Ol%C3%A1!%20Vim%20pelo%20site%20do%20Reinaldo%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20cons%C3%B3rcios%20da%20Ademicon%20Guarulhos."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-gold w-full sm:w-auto text-center shadow-lg"
@@ -46,10 +46,10 @@ export default function CTA() {
                 Quero meu consórcio <ArrowRight className="h-5 w-5 inline ml-1" />
               </a>
               <a
-                href="tel:+5500000000000"
+                href="tel:+5511970506840"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-white/25 px-6 py-4 font-semibold text-white transition hover:bg-white/10 w-full sm:w-auto"
               >
-                <Phone className="h-4 w-4 mr-1" /> Ligar Agora
+                <Phone className="h-4 w-4 mr-1" /> Ligar para o Bruno
               </a>
             </div>
 

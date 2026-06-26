@@ -91,7 +91,7 @@ export default function Hero() {
         <div className="animate-fade-up">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-black/5 bg-white/60 px-4 py-1.5 text-xs font-semibold text-[var(--ink-soft)] backdrop-blur shadow-sm">
             <span className="h-1.5 w-1.5 rounded-full bg-[var(--primary)]" />
-            Reinaldo da Silva · Embaixador, apoiador e investidor Ademicon
+            Reinaldo – Parceiro da Ademicon Guarulhos | Gestão Bruno Sousa
           </div>
           
           <h1 className="text-balance text-4xl font-extrabold leading-[1.05] text-[var(--ink)] sm:text-5xl md:text-6xl lg:text-7xl">
@@ -107,11 +107,11 @@ export default function Hero() {
           
           <p className="mt-8 max-w-xl text-base leading-relaxed text-[var(--ink-soft)] sm:text-lg">
             O consórcio inteligente para quem quer construir patrimônio de verdade, comprar bens ou renovar a frota{" "}
-            <span className="font-semibold text-[var(--ink)]">sem pagar juros abusivos.</span>
+            <span className="font-semibold text-[var(--ink)]">sem pagar juros abusivos.</span> Atendimento comercial e suporte exclusivos realizados pela <span className="font-semibold text-[var(--ink)]">Gestão Bruno Sousa</span>.
           </p>
 
           <p className="mt-3 max-w-xl text-sm text-[var(--muted-foreground)]">
-            Com a chancela de <span className="font-semibold text-[var(--ink)]">Reinaldo da Silva</span>, embaixador, apoiador e investidor da <span className="font-semibold text-[var(--ink)]">Ademicon</span>.
+            Com a chancela de <span className="font-semibold text-[var(--ink)]">Reinaldo</span>, parceiro oficial da <span className="font-semibold text-[var(--ink)]">Ademicon Guarulhos (Gestão Bruno Sousa)</span>.
           </p>
 
           {/* Key Stats Bar */}
@@ -362,7 +362,7 @@ export default function Hero() {
                 </div>
                 <div className="min-w-0">
                   <p className="text-xs text-[var(--muted-foreground)] font-semibold uppercase tracking-wider">Apoio & Parceria</p>
-                  <h4 className="truncate text-base font-bold text-[var(--ink)]">Reinaldo da Silva × Ademicon</h4>
+                  <h4 className="truncate text-base font-bold text-[var(--ink)]">Reinaldo – Parceiro da Ademicon Guarulhos | Gestão Bruno Sousa</h4>
                 </div>
               </div>
             </div>
